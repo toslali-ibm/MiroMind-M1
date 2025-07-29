@@ -34,7 +34,7 @@ enable_repetition=True
 repetition_penalty=dynamic
 
 # Ray
-NNODES=8
+# NNODES=8
 
 # Algorithm
 temperature=1.0
