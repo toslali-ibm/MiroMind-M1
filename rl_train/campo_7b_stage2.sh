@@ -49,12 +49,12 @@ infer_ppo_max_token_len=$((max_prompt_length + max_response_length))
 offload=True
 gen_tp=1
 
-# Paths, please modify them
-TRAIN_FILE=PATH_TO_TRAIN_FILE
-TEST_FILE=PATH_TO_TEST_FILE
+# # Paths, please modify them
+# TRAIN_FILE=PATH_TO_TRAIN_FILE
+# TEST_FILE=PATH_TO_TEST_FILE
 
-MODEL_PATH=PATH_TO_MODEL_PATH
-CKPTS_DIR=PATH_TO_CKPTS_DIR
+# MODEL_PATH=PATH_TO_MODEL_PATH
+# CKPTS_DIR=PATH_TO_CKPTS_DIR
 
 
 python -m m1_train_script.src.main_campo \
