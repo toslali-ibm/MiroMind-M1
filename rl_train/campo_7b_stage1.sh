@@ -60,7 +60,7 @@ gen_tp=1
 python -m rl_train.src.main_campo \
     data.train_files="${TRAIN_FILE}" \
     data.val_files="${TEST_FILE}" \
-    data.prompt_key=problem \
+    data.prompt_key=prompt \
     data.truncation='left' \
     data.max_prompt_length=${max_prompt_length} \
     data.max_response_length=${max_response_length} \
@@ -128,7 +128,7 @@ python -m rl_train.src.main_campo \
     trainer.nnodes="${NNODES}" \
     trainer.val_before_train=False \
     trainer.test_freq=10 \
-    trainer.save_freq=10 \
+    trainer.save_freq=20 \
     trainer.total_epochs=100 \
     trainer.default_local_dir="${CKPTS_DIR}" \
     trainer.resume_mode=auto $@ 2>&1 | tee ${exp_name}.log

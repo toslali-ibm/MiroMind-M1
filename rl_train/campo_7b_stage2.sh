@@ -60,7 +60,7 @@ gen_tp=1
 python -m rl_train.src.main_campo \
     data.train_files="${TRAIN_FILE}" \
     data.val_files="${TEST_FILE}" \
-    data.prompt_key=problem \
+    data.prompt_key=prompt \
     data.truncation='left' \
     data.max_prompt_length=${max_prompt_length} \
     data.max_response_length=${max_response_length} \
