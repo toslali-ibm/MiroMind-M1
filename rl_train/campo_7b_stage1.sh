@@ -34,7 +34,7 @@ enable_repetition=True
 repetition_penalty=dynamic
 
 # Ray
-NNODES=8
+# NNODES=8
 
 # Algorithm
 temperature=1.0
@@ -42,22 +42,22 @@ top_p=1.0
 top_k=-1 # 0 for HF rollout, -1 for vLLM rollout
 
 # Performance Related Parameter
-sp_size=8
+sp_size=1
 use_dynamic_bsz=True
 actor_ppo_max_token_len=$((max_prompt_length + max_response_length))
 infer_ppo_max_token_len=$((max_prompt_length + max_response_length))
 offload=True
 gen_tp=1
 
-# Paths, please modify them
-TRAIN_FILE=PATH_TO_TRAIN_FILE
-TEST_FILE=PATH_TO_TEST_FILE
+# # Paths, please modify them
+# TRAIN_FILE=PATH_TO_TRAIN_FILE
+# TEST_FILE=PATH_TO_TEST_FILE
 
-MODEL_PATH=PATH_TO_MODEL_PATH
-CKPTS_DIR=PATH_TO_CKPTS_DIR
+# MODEL_PATH=PATH_TO_MODEL_PATH
+# CKPTS_DIR=PATH_TO_CKPTS_DIR
 
 
-python -m m1_train_script.src.main_campo \
+python -m rl_train.src.main_campo \
     data.train_files="${TRAIN_FILE}" \
     data.val_files="${TEST_FILE}" \
     data.prompt_key=prompt \
@@ -128,7 +128,7 @@ python -m m1_train_script.src.main_campo \
     trainer.nnodes="${NNODES}" \
     trainer.val_before_train=False \
     trainer.test_freq=10 \
-    trainer.save_freq=10 \
+    trainer.save_freq=20 \
     trainer.total_epochs=100 \
     trainer.default_local_dir="${CKPTS_DIR}" \
     trainer.resume_mode=auto $@ 2>&1 | tee ${exp_name}.log
